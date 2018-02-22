@@ -131,6 +131,21 @@ def blackscrolly():
 
 blackscrolly()
 
+def dancy():
+    for i in xrange(50):
+        # switch off all pixels
+        clear()
+        # use randint() to pick a random number from 0,1,2,3,4,5,6,7
+        pos = i%8
+        # set chosen position with blue light
+        r=randint(0,255)
+        g=randint(0,255)
+        b=randint(0,255)
+        set_pixel(pos, r, g, b)
+        # show light
+        show()
+        # wait a bit (0.3s)
+        time.sleep(0.1)
 
 
 
