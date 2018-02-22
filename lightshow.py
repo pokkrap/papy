@@ -6,10 +6,10 @@ from random import randint
 
 def simple_demo():
     clear()
-    set_pixel (1,0,255,0)
+    set_pixel (1,50,195,100)
     show()
     time.sleep(1)
-
+#simple_demo()
 
 def show_primary_colors():
     clear()
@@ -112,11 +112,24 @@ def dance():
         show()
         time.sleep(0.1)
 
-dance()
-bouncy()
-jumpy()
 
 
+def blackscrolly():
+    for i in xrange(50):
+        # switch off all pixels
+        clear()
+        bpos = i%8
+        for pos in xrange(8):
+            if bpos == pos:
+                set_pixel(pos, 255, 255, 255)
+            else:
+                set_pixel(pos, 240, 100, 0)
+        # show light
+        show()
+        # wait a bit (0.3s)
+        time.sleep(0.05)
+
+blackscrolly()
 
 
 
