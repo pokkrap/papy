@@ -129,7 +129,7 @@ def blackscrolly():
         # wait a bit (0.3s)
         time.sleep(0.05)
 
-blackscrolly()
+#blackscrolly()
 
 def dancy():
     for i in xrange(50):
@@ -147,5 +147,28 @@ def dancy():
         # wait a bit (0.3s)
         time.sleep(0.1)
 
-
+def double():
+    for i in xrange(32):
+        # switch off all pixels
+        clear()
+        # use randint() to pick a random number from 0,1,2,3,4,5,6,7
+        pos = i%4
+        for pos in xrange(8):
+            if pos%4-i%4 == 0:
+                set_pixel(pos, 255, 255, 255, 0.05)
+            elif pos%4-i%4 == 1:
+                set_pixel(pos, 255, 0, 0, 0.05)
+            elif pos%4-i%4 == 2:
+                set_pixel(pos, 0, 255, 0.05)
+            elif pos%4-i%4 == 3:
+                set_pixel(pos, 0, 0, 255, 0.05)
+            elif pos%4-i%4 == -1:
+                set_pixel(pos, 255, 0, 0, 0.05)
+            elif pos%4-i%4 == -2:
+                set_pixel(pos, 0, 255, 0, 0.05)
+            elif pos%4-i%4 == -3:
+                set_pixel(pos, 0, 0, 255, 0.05)
+        show()
+        time.sleep(0.5)
+double()
 
