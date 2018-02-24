@@ -3,11 +3,16 @@ from blinkt import set_pixel, set_brightness, show, clear
 import time
 from random import randint
 
+msg = "test"
+
+def xshow():
+    show()
+    print msg
 
 def simple_demo():
     clear()
     set_pixel (1,50,195,100)
-    show()
+    xshow()
     time.sleep(1)
 
 def show_primary_colors():
@@ -20,7 +25,7 @@ def show_primary_colors():
     set_pixel(5, 255, 0, 225)
     set_pixel(6, 180, 180, 180)
     set_pixel(7, 50, 50, 50)
-    show()
+    xshow()
     time.sleep(1)
 
 def jumpy():
@@ -32,7 +37,7 @@ def jumpy():
         # set chosen position with green light
         set_pixel(pos, 0, 255, 0)
         # show light
-        show()
+        xshow()
         # wait a bit (0.3s)
         time.sleep(0.5)
 
@@ -48,7 +53,7 @@ def scrolly():
         b=randint(0,255)
         set_pixel(pos, r, g, b)
         # show light
-        show()
+        xshow()
         # wait a bit (0.3s)
         time.sleep(0.1)
 
@@ -67,7 +72,7 @@ def bouncy():
         set_pixel(pos, r, g, b)
         #set_pixel(pos, 0, 0, 255)
         # show light
-        show()
+        xshow()
         # wait a bit (0.3s)
         time.sleep(0.1)
 
@@ -85,7 +90,7 @@ def bouncer():
         set_pixel(pos, r, g, b)
         #set_pixel(pos, 0, 0, 255)
         # show light
-        show()
+        xshow()
         # wait a bit (0.3s)
         time.sleep(0.1)
 
@@ -100,7 +105,7 @@ def dance():
             g=255-pos*32
             b=pos*32
             set_pixel(pos, r, g, b)
-        show()
+        xshow()
         time.sleep(0.1)
 
 
@@ -116,7 +121,7 @@ def blackscrolly():
             else:
                 set_pixel(pos, 240, 100, 0)
         # show light
-        show()
+        xshow()
         # wait a bit (0.3s)
         time.sleep(0.05)
 
@@ -132,7 +137,7 @@ def dancy():
         b=randint(0,255)
         set_pixel(pos, r, g, b)
         # show light
-        show()
+        xshow()
         # wait a bit (0.3s)
         time.sleep(0.1)
 
@@ -157,7 +162,7 @@ def double():
                 set_pixel(pos, 0, 255, 0, 0.05)
             elif pos%4-i%4 == -3:
                 set_pixel(pos, 0, 0, 255, 0.05)
-        show()
+        xshow()
         time.sleep(0.5)
 
 def scrollyd():
@@ -165,45 +170,27 @@ def scrollyd():
         # switch off all pixels
         clear()
         # use randint() to pick a random number from 0,1,2,3,4,5,6,7
-        pos = 7-i%8
+        os = 7-i%8
         # set chosen position with blue light
         r=randint(0,255)
         g=randint(0,255)
         b=randint(0,255)
         set_pixel(pos, r, g, b)
         # show light
-        show()
-        print (pos, r, g, b)
+        xshow()
+        #print (pos, r, g, b)
         # wait a bit (0.3s)
         time.sleep(0.5)
 
-def scrollytwoway():
-    for i in xrange(50):
-        clear()
-        pos = i%8
-        spos = 7-i%8
-        set_pixel(pos, 0, 200, 50)
-        set_pixel(spos, 64, 132, 255)
-        show()
-        time.sleep(0.1)
+msg = "it was a beautiful day..."
+show_primary_colors()
+time.sleep(2)
+
 #simple_demo()
-#show_primary_colors()
 #show_primary_colors()
 #scrolly()
 #double()
-#bouncy
+bouncy()
 #bouncer
 #blackscrolly
-#scrollyd()
-#scrollytwoway()
-
-def build_random_list():
-
-    l = []
-    for i in xrange(8):
-        l.insert(0, randint(0,10))
-        print l
-    return l
-
-newlist = build_random_list()
-print "the list is : ", newlist
+scrollyd()
