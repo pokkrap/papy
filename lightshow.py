@@ -186,6 +186,41 @@ def scrollytwoway():
         set_pixel(spos, 64, 132, 255)
         show()
         time.sleep(0.1)
+
+def build_random_list():
+
+    l = []
+    for i in xrange(8):
+        l.insert(0, randint(0,10))
+        print l
+    return l
+
+def colorlist(numcolors):
+    l = []
+    for i in xrange(numcolors):
+        r = randint(0, 255)
+        g = randint(0, 255)
+        b = randint(0, 255)
+        l.append((r, g, b))
+    return l
+
+def scrollrandom():
+    l = colorlist(8)
+    for a in xrange(50):
+        clear()
+        for i in xrange(8):
+            c = l[i]
+            set_pixel( i, c[0], c[1], c[2])
+        show()
+        time.sleep(0.2)
+        last_l = l.pop()
+        l.insert(0, last_l)
+
+
+
+
+
+
 #simple_demo()
 #show_primary_colors()
 #show_primary_colors()
@@ -196,14 +231,5 @@ def scrollytwoway():
 #blackscrolly
 #scrollyd()
 #scrollytwoway()
-
-def build_random_list():
-
-    l = []
-    for i in xrange(8):
-        l.insert(0, randint(0,10))
-        print l
-    return l
-
-newlist = build_random_list()
-print "the list is : ", newlist
+#print "the list is : ", newlist
+scrollrandom()
